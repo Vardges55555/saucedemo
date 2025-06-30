@@ -12,11 +12,11 @@ public class InventoryPage extends BasePage {
         super(driver);
     }
     public void addFirstItemToCart() {
-        clickWhenClickable(By.cssSelector(".inventory_item button"));
+        click(By.cssSelector(".inventory_item button"));
     }
 
     public void goToCart() {
-        clickWhenClickable(By.id("shopping_cart_container"));
+        click(By.id("shopping_cart_container"));
     }
     public boolean isPageOpened() {
         return isVisible(inventoryContainer);

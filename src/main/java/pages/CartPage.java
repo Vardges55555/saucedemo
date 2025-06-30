@@ -12,7 +12,7 @@ public class CartPage extends BasePage{
     }
 
     public void clickCheckout() {
-        clickWhenClickable(checkoutButton);
+        click(checkoutButton);
 
     }
 }

@@ -17,6 +17,6 @@ public class CheckoutInformationPage extends BasePage {
         type(firstName, first);
         type(lastName, last);
         type(postalCode, postal);
-        clickWhenClickable(continueButton);
+        click(continueButton);
     }
 }

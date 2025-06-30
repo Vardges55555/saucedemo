@@ -12,6 +12,6 @@ public class CheckoutOverviewPage extends BasePage {
     }
 
     public void finishCheckout() {
-        clickWhenClickable(finishButton);
+        click(finishButton);
     }
 }
