@@ -1,22 +1,18 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class CartPage {
-    private WebDriver driver;
 
-    @FindBy(id = "checkout")
-    private WebElement checkoutButton;
+public class CartPage extends BasePage{
+    private final By checkoutButton = By.id("checkout");
 
     public CartPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void clickCheckout() {
-        checkoutButton.click();
+        click(checkoutButton);
+
     }
 }

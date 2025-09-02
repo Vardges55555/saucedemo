@@ -1,37 +1,22 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class CheckoutInformationPage {
-    private WebDriver driver;
-
-    @FindBy(id = "first-name")
-    private WebElement firstNameInput;
-
-    @FindBy(id = "last-name")
-    private WebElement lastNameInput;
-
-    @FindBy(id = "postal-code")
-    private WebElement postalCodeInput;
-
-    @FindBy(id = "continue")
-    private WebElement continueButton;
+public class CheckoutInformationPage extends BasePage {
+    private final By firstName = By.id("first-name");
+    private final By lastName = By.id("last-name");
+    private final By postalCode = By.id("postal-code");
+    private final By continueButton = By.id("continue");
 
     public CheckoutInformationPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
-    public void enterInformation(String firstName, String lastName, String postalCode) {
-        firstNameInput.clear();
-        firstNameInput.sendKeys(firstName);
-        lastNameInput.clear();
-        lastNameInput.sendKeys(lastName);
-        postalCodeInput.clear();
-        postalCodeInput.sendKeys(postalCode);
-        continueButton.click();
+    public void enterInformation(String first, String last, String postal) {
+        type(firstName, first);
+        type(lastName, last);
+        type(postalCode, postal);
+        click(continueButton);
     }
 }

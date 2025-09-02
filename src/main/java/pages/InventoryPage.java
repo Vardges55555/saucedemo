@@ -1,22 +1,24 @@
+
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class InventoryPage {
-    private WebDriver driver;
+public class InventoryPage extends BasePage {
 
-    @FindBy(id = "inventory_container")
-    private WebElement inventoryContainer;
+    private final By inventoryContainer = By.id("inventory_container");
 
     public InventoryPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
+    }
+    public void addFirstItemToCart() {
+        click(By.cssSelector(".inventory_item button"));
     }
 
+    public void goToCart() {
+        click(By.id("shopping_cart_container"));
+    }
     public boolean isPageOpened() {
-        return inventoryContainer.isDisplayed();
+        return isVisible(inventoryContainer);
     }
 }
